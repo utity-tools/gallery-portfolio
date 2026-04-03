@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# Gallery Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern developer portfolio built with the 2026 frontend stack.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** — UI library with concurrent features
+- **TypeScript** — Static typing for safer, more maintainable code
+- **Vite** — Fast build tool and dev server
+- **Tailwind CSS v4** — Utility-first CSS with the new Vite plugin
+- **shadcn/ui** — Accessible component primitives built on Radix UI with the Vega preset
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+│   ├── layout/      # Navbar, Footer, Layout wrapper
+│   ├── sections/    # Hero, About, Projects, Contact
+│   └── ui/          # shadcn/ui reusable components
+├── data/            # Static mock content
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions
+└── types/           # TypeScript interfaces and types
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 📌 Fixed navbar with backdrop blur and smooth scroll
+- ✨ Hero section with animated availability dot and CTA buttons
+- 🗂 Projects grid with cards, tags and links
+- 👤 About section with stats and skills grid
+- 📬 Contact section with info card
+- 🔗 Footer
+- 📱 Fully responsive dark theme
+- 🌿 Professional Git workflow with feature branches
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Git Workflow
+
+- `main` — stable, production-ready code only
+- `setup/*` — configuration and tooling branches
+- `feat/*` — one branch per feature, merged to main when complete
+
+Each feature is developed in isolation on its own branch and merged into `main` via pull request once complete and reviewed.
+
+## Getting Started
+
+```bash
+git clone https://github.com/your-username/gallery-portfolio.git
+cd gallery-portfolio
+npm install
+npm run dev
 ```
+
+## License
+
+MIT
