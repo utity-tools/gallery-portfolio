@@ -1,40 +1,41 @@
 import { projects } from '../../data/projects'
 import type { Project } from '../../types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="flex flex-col gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors duration-200">
-      <div className="flex flex-col gap-2">
-        <h3 className="text-white font-bold text-lg">{project.title}</h3>
+    <Card className="flex flex-col bg-zinc-900 border-zinc-800 hover:border-zinc-600 transition-colors duration-200">
+      <CardHeader>
+        <CardTitle className="text-white">{project.title}</CardTitle>
         <p className="text-zinc-400 text-sm leading-relaxed">{project.description}</p>
-      </div>
+      </CardHeader>
 
-      <div className="flex flex-wrap gap-2 mt-auto">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="bg-zinc-800 text-zinc-300 text-xs rounded-full px-3 py-1"
+      <CardContent className="flex flex-col gap-4 mt-auto">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <Badge key={tag} variant="secondary">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-6 pt-2 border-t border-zinc-800">
+          <a
+            href={project.github}
+            className="text-zinc-500 hover:text-white text-sm transition-colors duration-200"
           >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="flex items-center gap-6 pt-2 border-t border-zinc-800">
-        <a
-          href={project.github}
-          className="text-zinc-500 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1"
-        >
-          GitHub ↗
-        </a>
-        <a
-          href={project.live}
-          className="text-zinc-500 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1"
-        >
-          Live Demo ↗
-        </a>
-      </div>
-    </article>
+            GitHub ↗
+          </a>
+          <a
+            href={project.live}
+            className="text-zinc-500 hover:text-white text-sm transition-colors duration-200"
+          >
+            Live Demo ↗
+          </a>
+        </div>
+      </CardContent>
+    </Card>
   )
 }
 

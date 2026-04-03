@@ -1,3 +1,5 @@
+import { Badge } from '@/components/ui/badge'
+
 const stats = [
   { value: '3+', label: 'Years experience' },
   { value: '20+', label: 'Projects built' },
@@ -54,12 +56,9 @@ export default function About() {
               <span className="text-zinc-500 text-xs tracking-widest uppercase">{category}</span>
               <div className="flex flex-wrap gap-2">
                 {items.map((item) => (
-                  <span
-                    key={item}
-                    className="bg-zinc-800 text-zinc-300 text-sm rounded-full px-4 py-1.5"
-                  >
+                  <Badge key={item} variant="outline">
                     {item}
-                  </span>
+                  </Badge>
                 ))}
               </div>
             </div>

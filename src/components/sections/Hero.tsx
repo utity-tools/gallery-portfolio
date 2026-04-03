@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button'
+
 export default function Hero() {
   return (
     <section
@@ -26,18 +28,12 @@ export default function Hero() {
         </p>
 
         <div className="flex items-center gap-4 mt-2">
-          <a
-            href="#projects"
-            className="px-6 py-3 bg-white text-zinc-950 font-medium rounded-lg hover:bg-zinc-200 transition-colors duration-200"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-zinc-700 text-white rounded-lg hover:bg-zinc-800 hover:border-zinc-600 transition-colors duration-200"
-          >
-            Get in touch
-          </a>
+          <Button size="lg" asChild>
+            <a href="#projects">View Projects</a>
+          </Button>
+          <Button variant="outline" size="lg" asChild>
+            <a href="#contact">Get in touch</a>
+          </Button>
         </div>
       </div>
     </section>
