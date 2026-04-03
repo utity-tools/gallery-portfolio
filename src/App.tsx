@@ -1,7 +1,7 @@
 import Layout from './components/layout/Layout'
+import Hero from './components/sections/Hero'
 
-const sections = [
-  { id: 'hero', label: 'Hero Section' },
+const placeholders = [
   { id: 'about', label: 'About Section' },
   { id: 'projects', label: 'Projects Section' },
   { id: 'contact', label: 'Contact Section' },
@@ -11,7 +11,8 @@ function App() {
   return (
     <Layout>
       <main>
-        {sections.map(({ id, label }) => (
+        <Hero />
+        {placeholders.map(({ id, label }) => (
           <section
             key={id}
             id={id}
